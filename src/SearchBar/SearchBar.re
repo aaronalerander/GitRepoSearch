@@ -15,7 +15,6 @@ type state = {
   results: list(repository),
 };
 
-//might have to put this module above the react.component decorator
 module Api = {
   open Json.Decode;
 
@@ -58,13 +57,6 @@ module Api = {
 
 [@react.component]
 let make = _ => {
-  //let (input, setInput) = React.useState(_ => "");
-  //let (isLoading, setIsLoading) = React.useState(_ => false);
-  let myfunc = input => {
-    //let value = state.input;
-    Js.log(input);
-  };
-
   let (state, dispatch) =
     React.useReducer(
       (state, action) =>
@@ -82,9 +74,7 @@ let make = _ => {
         onSubmit={event => {
           ReactEvent.Form.preventDefault(event);
           dispatch(Search);
-          //myfunc(state.input);
           let value = state.input;
-          
           let _ =
             Api.getResults(value)
             |> Js.Promise.then_(results => {
@@ -101,7 +91,6 @@ let make = _ => {
           onChange={event => {
             let value = ReactEvent.Form.target(event)##value;
             dispatch(UpdateInput(value));
-
           }}
         />
         <button type_="submit">
@@ -110,7 +99,7 @@ let make = _ => {
       </form>
       <div>
         {state.isLoading
-           ? ReasonReact.string("Loading...")
+           ? <LoadingCard />
            : state.results
              |> Array.of_list
              |> Array.map(({name, href, description}) =>

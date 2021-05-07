@@ -6,6 +6,7 @@ var Curry = require("bs-platform/lib/js/curry.js");
 var React = require("react");
 var Json_decode = require("@glennsl/bs-json/src/Json_decode.bs.js");
 var Card$MyReactApp = require("../Card/Card.bs.js");
+var LoadingCard$MyReactApp = require("../Card/LoadingCard.bs.js");
 
 function decodeResults(param) {
   return Json_decode.field("items", (function (param) {
@@ -35,7 +36,7 @@ function getResults(query) {
                                       RE_EXN_ID: "Match_failure",
                                       _1: [
                                         "SearchBar.re",
-                                        50,
+                                        49,
                                         16
                                       ],
                                       Error: new Error()
@@ -108,7 +109,7 @@ function SearchBar(Props) {
                             })
                         }), React.createElement("button", {
                           type: "submit"
-                        }, "Submit Search")), React.createElement("div", undefined, state.isLoading ? "Loading..." : $$Array.map((function (param) {
+                        }, "Submit Search")), React.createElement("div", undefined, state.isLoading ? React.createElement(LoadingCard$MyReactApp.make, {}) : $$Array.map((function (param) {
                               var href = param.href;
                               return React.createElement(Card$MyReactApp.make, {
                                           name: param.name,

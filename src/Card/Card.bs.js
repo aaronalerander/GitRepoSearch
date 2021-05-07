@@ -9,6 +9,8 @@ function Card(Props) {
   return React.createElement("div", {
               style: {
                 border: "2px solid #898989",
+                marginTop: "10px",
+                marginBottom: "10px",
                 padding: "1rem",
                 borderRadius: "4px"
               }

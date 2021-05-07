@@ -27,31 +27,8 @@ let makeContainer = text => {
   content;
 };
 
-// All 4 examples.
-/*ReactDOMRe.render(
-    <BlinkingGreeting>
-      {React.string("Hello!")}
-    </BlinkingGreeting>,
-    makeContainer("Blinking Greeting"),
-  );*/
-
-ReactDOMRe.render(
-  <ReducerFromReactJSDocs />,
-  makeContainer("Reducer From ReactJS Docs"),
-);
-
-ReactDOMRe.render(
-  <FetchedDogPictures />,
-  makeContainer("Fetched Dog Pictures"),
-);
-
-ReactDOMRe.render(
-  <ReasonUsingJSUsingReason />,
-  makeContainer("Reason Using JS Using Reason"),
-);
-
 ReactDOMRe.render(
   <SearchBar />,
   //<Card name="reason" href="" description="This is cool" />,
-  makeContainer("This is your card"),
+  makeContainer("Github Repo Search"),
 );

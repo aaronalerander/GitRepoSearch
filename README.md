@@ -1,5 +1,7 @@
 # ReasonReact Template & Examples
 
+Program that allows you to search for github repositories
+
 ## Run
 
 ```sh
